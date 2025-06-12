@@ -12,7 +12,7 @@ export default function App() {
       id: 1,
       name: "Empire of Osman",
       viewers: 889,
-      like: false,
+      like: true,
       favourite: false,
     },
     {
@@ -26,7 +26,7 @@ export default function App() {
       id: 3,
       name: "The Dark Knight",
       viewers: 789,
-      like: false,
+      like: true,
       favourite: true,
     },
     {
@@ -53,6 +53,23 @@ export default function App() {
       )
     );
   }
+
+  function addMovie(name, viewers) {
+    const newMovie = {
+      id: Date.now(), // unikal id
+      name,
+      viewers: parseInt(viewers),
+      like: false,
+      favourite: false,
+    };
+
+    setMovies([...movies, newMovie]);
+  }
+
+  function deleteMovie(id) {
+    setMovies(movies.filter((movie) => movie.id !== id));
+  }
+  
   
   return (
     <>
@@ -72,11 +89,12 @@ export default function App() {
               movies={movies}
               toggleLike={toggleLike}
               toggleFavourite={toggleFavourite}
+              deleteMovie={deleteMovie}
             />
           </div>
 
           <div className="box">
-            <Form />
+            <Form addMovie={addMovie} />
           </div>
         </div>
       </div>

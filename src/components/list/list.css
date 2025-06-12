@@ -15,9 +15,12 @@
 .list-group-item .viewers {
   background-color: #f3f3f3;
   border-radius: 5px;
-  padding: 8px 40px;
+  padding: 8px;
   margin-right: 5px;
   color: #404040;
+  width: 100px;
+  display: inline-block;
+  text-align: center;
 }
 
 .list-group-item .fa-cookie {
@@ -46,6 +49,5 @@
 .list-group-item.favourite .list-group-item-label,
 .list-group-item.favourite .viewers {
   color: #e09f3e;
-  transition: all 0.3s ease-in-out;
 }
 

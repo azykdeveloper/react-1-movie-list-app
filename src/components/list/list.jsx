@@ -1,6 +1,6 @@
 import "./list.css";
 
-function ListItem({ movie, toggleLike, toggleFavourite }) {
+function ListItem({ movie, toggleLike, toggleFavourite, deleteMovie }) {
   return (
     <li
       className={`list-group-item d-flex justify-content-between align-items-center ${
@@ -24,7 +24,7 @@ function ListItem({ movie, toggleLike, toggleFavourite }) {
         >
           <span className="fas fa-cookie"></span>
         </button>
-        <button className="btn-trash">
+        <button className="btn-trash" onClick={() => deleteMovie(movie.id)}>
           <span className="fas fa-trash"></span>
         </button>
         <span className="fas fa-star"></span>
@@ -33,15 +33,19 @@ function ListItem({ movie, toggleLike, toggleFavourite }) {
   );
 }
 
-export default function List({ movies, toggleLike, toggleFavourite }) {
+export default function List({ movies, toggleLike, toggleFavourite, deleteMovie }) {
   return (
     <>
+      <div >
+        <h5>No data</h5>
+      </div>
       <ul className="list-group">
         {movies.map((movie) => (
           <ListItem
             movie={movie}
             toggleLike={toggleLike}
             toggleFavourite={toggleFavourite}
+            deleteMovie={deleteMovie}
             key={movie.id}
           />
         ))}

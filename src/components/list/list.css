@@ -1,3 +1,7 @@
+.list-group-item-label:hover {
+  cursor: pointer;
+}
+
 .list-group-item button {
   width: 35px;
   height: 35px;
@@ -8,13 +12,12 @@
   border-radius: 5px;
 }
 
-.list-group-item input {
-  outline: none;
-  border: none;
+.list-group-item .viewers {
   background-color: #f3f3f3;
   border-radius: 5px;
-  padding: 5px;
-  text-align: center;
+  padding: 8px 40px;
+  margin-right: 5px;
+  color: #404040;
 }
 
 .list-group-item .fa-cookie {
@@ -24,7 +27,7 @@
   color: #e5383b;
 }
 .list-group-item .fa-star {
-  color: #ffd700;
+  color: #e09f3e;
   width: 35px;
   height: 35px;
   line-height: 35px;
@@ -40,3 +43,9 @@
   transform: translateX(0);
   opacity: 1;
 }
+.list-group-item.favourite .list-group-item-label,
+.list-group-item.favourite .viewers {
+  color: #e09f3e;
+  transition: all 0.3s ease-in-out;
+}
+

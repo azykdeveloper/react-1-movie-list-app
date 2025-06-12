@@ -1,27 +1,50 @@
 import "./list.css";
 
-export default function List() {
+function ListItem({ movie, toggleLike, toggleFavourite }) {
+  return (
+    <li
+      className={`list-group-item d-flex justify-content-between align-items-center ${
+        movie.favourite && "favourite"
+      } ${movie.like && "like"}`}
+    >
+      <span
+        onClick={() => toggleLike(movie.id)}
+        className="list-group-item-label fs-5"
+      >
+        {movie.name}
+      </span>
+
+      <div>
+        <span className="viewers">
+          <i className="fas fa-eye"></i> {movie.viewers}
+        </span>
+        <button
+          className="btn-cookie"
+          onClick={() => toggleFavourite(movie.id)}
+        >
+          <span className="fas fa-cookie"></span>
+        </button>
+        <button className="btn-trash">
+          <span className="fas fa-trash"></span>
+        </button>
+        <span className="fas fa-star"></span>
+      </div>
+    </li>
+  );
+}
+
+export default function List({ movies, toggleLike, toggleFavourite }) {
   return (
     <>
       <ul className="list-group">
-        <li className="list-group-item d-flex justify-content-between align-items-center">
-          <span className="list-group-item-label">Empire of Osman</span>
-
-          <div>
-            <input
-              type="number"
-              className="list-group-item-input me-2"
-            />
-            <button className="btn-cookie">
-              <span class="fas fa-cookie"></span>
-            </button>
-            <button className="btn-trash">
-              <span class="fas fa-trash"></span>
-            </button>
-            <span class="fas fa-star"></span>
-          </div>
-        </li>
-        
+        {movies.map((movie) => (
+          <ListItem
+            movie={movie}
+            toggleLike={toggleLike}
+            toggleFavourite={toggleFavourite}
+            key={movie.id}
+          />
+        ))}
       </ul>
     </>
   );

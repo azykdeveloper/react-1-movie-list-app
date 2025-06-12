@@ -5,13 +5,13 @@ export default function Form() {
       <form className="d-flex gap-2">
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             id="movie_name"
             placeholder="Movie name"
           />
           <input
             type="number"
-            class="form-control"
+            className="form-control"
             id="count"
             placeholder="Count"
           />

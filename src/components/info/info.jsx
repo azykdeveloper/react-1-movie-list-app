@@ -1,8 +1,8 @@
-export default function Info() {
+export default function Info({allMovies, favouriteMovies}) {
   return (
     <>
-      <h5 className="">Barcha kinolar soni: </h5>
-      <h5 className="mb-0">Ko'rilgan kinolar soni: </h5>
+      <h5 className="">Barcha kinolar soni: {allMovies}</h5>
+      <h5 className="mb-0">Sevimli kinolar soni: {favouriteMovies}</h5>
     </>
-  )
+  );
 }

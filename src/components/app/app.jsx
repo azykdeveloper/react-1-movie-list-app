@@ -7,6 +7,8 @@ import Search from "../search/search";
 import "./app.css";
 
 export default function App() {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filter, setFilter] = useState("all");
   const [movies, setMovies] = useState([
     {
       id: 1,
@@ -37,6 +39,23 @@ export default function App() {
       favourite: false,
     },
   ]);
+
+  const searchMovies = movies.filter((movie) =>
+    movie.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  function applyFilter(movies, filter) {
+    switch (filter) {
+      case "favourite":
+        return movies.filter((movie) => movie.favourite);
+      case "popular":
+        return movies.filter((movie) => movie.viewers > 500);
+      default:
+        return movies;
+    }
+  }
+
+  const filteredMovies = applyFilter(searchMovies, filter);
 
   function toggleLike(id) {
     setMovies(
@@ -69,24 +88,26 @@ export default function App() {
   function deleteMovie(id) {
     setMovies(movies.filter((movie) => movie.id !== id));
   }
-  
-  
+
   return (
     <>
       <div id="app">
         <div className="wrapper">
           <div className="box">
-            <Info />
+            <Info
+              allMovies={movies.length}
+              favouriteMovies={movies.filter((movie) => movie.favourite).length}
+            />
           </div>
 
           <div className="box">
-            <Search />
-            <Filter />
+            <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+            <Filter filter={filter} setFilter={setFilter} />
           </div>
 
           <div className="box">
             <List
-              movies={movies}
+              movies={filteredMovies}
               toggleLike={toggleLike}
               toggleFavourite={toggleFavourite}
               deleteMovie={deleteMovie}

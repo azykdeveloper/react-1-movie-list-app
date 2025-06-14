@@ -1,14 +1,14 @@
 [![Screenshot-2025-05-29-163235.png](https://i.postimg.cc/XYH92XmZ/Screenshot-2025-05-29-163235.png)](https://postimg.cc/RWt3hCM9)
 
-# 🎬 Vue Movie List App ([demo](https://react-1-movie-list-app.vercel.app/))
+# Movie List App ([demo](https://react-1-movie-list-app.vercel.app/))
 
 A minimalist movie listing application built with **React** and **Vite**. This project showcases a curated list of movies, providing a clean and responsive user interface.
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 `react` `vite` `javascript` `bootstrap` `css` `html`
 
-## 📦 Project Setup
+## Project Setup
 
 To run the project locally:
 

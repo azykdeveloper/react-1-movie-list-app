@@ -33,23 +33,29 @@ function ListItem({ movie, toggleLike, toggleFavourite, deleteMovie }) {
   );
 }
 
-export default function List({ movies, toggleLike, toggleFavourite, deleteMovie }) {
+export default function List({
+  movies,
+  toggleLike,
+  toggleFavourite,
+  deleteMovie,
+}) {
   return (
     <>
-      <div >
-        <h5>No data</h5>
-      </div>
-      <ul className="list-group">
-        {movies.map((movie) => (
-          <ListItem
-            movie={movie}
-            toggleLike={toggleLike}
-            toggleFavourite={toggleFavourite}
-            deleteMovie={deleteMovie}
-            key={movie.id}
-          />
-        ))}
-      </ul>
+      {movies.length <= 0 ? (
+        <div>No data</div>
+      ) : (
+        <ul className="list-group">
+          {movies.map((movie) => (
+            <ListItem
+              movie={movie}
+              toggleLike={toggleLike}
+              toggleFavourite={toggleFavourite}
+              deleteMovie={deleteMovie}
+              key={movie.id}
+            />
+          ))}
+        </ul>
+      )}
     </>
   );
 }
